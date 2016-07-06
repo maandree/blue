@@ -208,9 +208,18 @@ if stop_date is not None:
 else:
     tm = time.localtime()
     if tm.tm_mon < 12:
-        stop_date = (tm.tm_year, tm.tm_mon + 1, tm.tm_mday)
+        y, m, d = tm.tm_year, tm.tm_mon + 1, tm.tm_mday - 1
     else:
-        stop_date = (tm.tm_year + 1, 1, tm.tm_mday)
+        y, m, d = tm.tm_year + 1, 1, tm.tm_mday - 1
+    if d < 1:
+        m -= 1
+        if m < 1:
+            m = 12
+            y -= 1
+        days = 29 if y % 400 == 0 or (y % 4 == 0 and not y % 100 == 0) else 28
+        days = [31, days, 31, 30, 31, 30, 30, 31, 30, 31, 30, 31]
+        d = days[m - 1]
+    stop_date = (y, m, d)
 
 
 ## Get stop time
