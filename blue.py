@@ -217,7 +217,7 @@ else:
             m = 12
             y -= 1
         days = 29 if y % 400 == 0 or (y % 4 == 0 and not y % 100 == 0) else 28
-        days = [31, days, 31, 30, 31, 30, 30, 31, 30, 31, 30, 31]
+        days = [31, days, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         d = days[m - 1]
     stop_date = (y, m, d)
 
@@ -235,7 +235,7 @@ else:
             break
     (y, m, d) = stop_date
     days = 29 if y % 400 == 0 or (y % 4 == 0 and not y % 100 == 0) else 28
-    days = [31, days, 31, 30, 31, 30, 30, 31, 30, 31, 30, 31]
+    days = [31, days, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     stop_time = d - 1
     for i in range(m - 1):
         stop_time += days[i]
@@ -245,6 +245,7 @@ else:
     stop_time *= 24 * 60 * 60
     stop_time += 24 * 60 * 60
     stop_time -= (time.altzone if is_summer else time.timezone)
+    print('Z  ', time.gmtime(stop_time))
 
 
 def get_elev(elev, start, morning):
