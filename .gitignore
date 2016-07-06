@@ -1,0 +1,12 @@
+\#*\#
+*~
+__pycache__/
+*.swp
+*.swo
+*.bak
+*.pyc
+*.pyo
+*.orig
+bin/
+aux/
+obj/
