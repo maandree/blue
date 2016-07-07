@@ -29,7 +29,7 @@ OPTIONS
 		derivative of the Sun's elevation is non-positive (evening).
 
 	-g
-		List the time when the golden hour begins. (default)
+		List the time when the golden hour begins.
 
 	-G
 		List the time when the golden hour ends.
