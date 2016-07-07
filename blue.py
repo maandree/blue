@@ -91,7 +91,7 @@ while i < n:
         i += 1
     else:
         break
-if i != n or (human and unix):
+if i != n or (human and unix) or (local and unix):
     usage()
 
 
