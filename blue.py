@@ -219,6 +219,11 @@ else:
         days = 29 if y % 400 == 0 or (y % 4 == 0 and not y % 100 == 0) else 28
         days = [31, days, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
         d = days[m - 1]
+    else:
+        days = 29 if y % 400 == 0 or (y % 4 == 0 and not y % 100 == 0) else 28
+        days = [31, days, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        if d > days[m - 1]:
+            d = days[m - 1]
     stop_date = (y, m, d)
 
 
