@@ -1,0 +1,126 @@
+NAME
+	blue - Creates table of when the blue hour etc. occurs
+
+SYNPOSIS
+	blue [-d delev]* [-D delev]* [-e elev]* [-m elev]* [-h [-L] | -u | -L]
+	     [-l lat:lon | -l loc] [-s year-month-day | -s -] [-r num[h|m|s]]
+             [-bBgGnN]
+
+DESCRIPTION
+	blue prints a list of time point when the select event occurs.
+
+OPTIONS
+	-b
+		List the time when the blue hour begins. (default)
+
+	-B
+		List the time when the blue hour ends.
+
+	-d DELEV
+		List the time when the first derivative of the Sun's elevation
+		is DELEV and the Sun's elevation is non-negative (daytime).
+
+	-D DELEV
+		List the time when the first derivative of the Sun's elevation
+		is DELEV and the Sun's elevation is non-positive (nighttime).
+
+	-e ELEV
+		List the time when the Sun's elevation is ELEV and the first
+		derivative of the Sun's elevation is non-positive (evening).
+
+	-g
+		List the time when the golden hour begins. (default)
+
+	-G
+		List the time when the golden hour ends.
+
+	-h
+		Print times in human readable format.
+
+	-l LATITUDE:LONGITUDE
+		Tell blue where you are. The values are measured in degrees
+		and in the GPS (you probably do not have too care about that,
+		the differences between the systems should not be significant
+		another), and must be in decimal.
+
+		Reminder for Americans (particularly US Americans), you are
+		an the western hemisphere, not the eastern, thus your longtiude
+		is negative. If you experience weird time listings, 100 % of
+		the times it is because you forgot the minus sign. But no need
+		to feel stupid, it is a really common mistake.
+
+		No complicated stuff please, only latitudes within ±90° and
+		longitudes within ±180°. No unit thought.
+
+	-l LOCATION
+		Use a named location. In particular, the one stored in the
+		file ~/.config/geolocation.d/LOCATION, or the file LOCATION,
+		if it begins with either ./ (dot slash), ../ (dot dot slash),
+		or / (slash). By default ~/.config/geolocation, or
+		/etc/geolocation as a fallback, is used.
+
+	-L
+		Print times in local time.
+
+	-e ELEV
+		List the time when the Sun's elevation is ELEV and the first
+		derivative of the Sun's elevation is non-negative (morning).
+
+	-n
+		List the time of solar noon.
+
+	-N
+		List the time of solar midnight.
+
+	-r RES
+		Print the in RES resultion. RES must be an integer followed
+		by on the the suffixes:
+
+		h  hours
+		m  minutes (min is not a valid suffix)
+		s  seconds
+
+		For example: -r 15m prints the nearest quarters of the times.
+
+	-s DATE
+		The last date (local time) to include in the last.
+		A dash (-) for an infinite list. Default limit is one month.
+
+	-u
+		Print times in UNIX-time format.
+
+FILES
+	~/.config/geolocation
+		Used to get your location if -l is not used. This file contains
+		your geographical location using the Global Positioning System
+		in decimal format. This will never change. Other programs are
+		encouraged to use this file too.
+
+		If the file contains more than one line, only the first line,
+		even if it is empty, is used.
+
+	/etc/geolocation
+		Fallback file use if ~/.config/geolocation is missing. Other
+		programs are encouraged to use this file too.
+
+	~/.config/geolocation.d/
+		Directory used for named locations. The files are formatted
+		in the same way as ~/.config/geolocation. Other programs are
+		encouraged to use this directory too.
+
+	/etc/geolocation.d/
+		Directory used for named locations, used when the named
+		location is not listed in ~/.config/geolocation.d/. The files
+		are formatted in the same way as ~/.config/geolocation. Other
+		programs are encouraged to use this directory too.
+
+RATIONALE
+	This is useful if you plan to take nice photographies, for example
+	during the blue hours, or the golden hour.
+
+NOTES
+	US Americans, remember, you are on the Western Hemisphere. Therefore,
+	you should specify a negative longitude.
+
+SEE ALSO
+	locateme(1)
