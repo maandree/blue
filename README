@@ -83,8 +83,9 @@ OPTIONS
 		For example: -r 15m prints the nearest quarters of the times.
 
 	-s DATE
-		The last date (local time) to include in the last.
-		A dash (-) for an infinite list. Default limit is one month.
+		The last date (local time) to include in the last. DATE must
+		be in %Y-%m-%d (year dash month dash day) format. A dash (-)
+		for an infinite list. Default limit is one month.
 
 	-u
 		Print times in UNIX-time format.

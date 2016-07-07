@@ -1,0 +1,147 @@
+.TH BLUE 1 BLUE
+.SH "NAME"
+blue - Creates table of when the blue hour etc. occurs
+.SH "SYNPOSIS"
+.nf
+\fBblue\fP [\fB-d\fP \fIdelev\fP]* [\fB-D\fP \fIdelev\fP]* [\fB-e\fP \fIelev\fP]* [\fB-m\fP \fIelev\fP]* [\fB-h\fP [\fB-L\fP] | \fB-u\fP | \fB-L\fP]
+     [\fB-l\fP \fIlat\fP\fB:\fP\fIlon\fP | \fB-l\fP \fIloc\fP] [\fB-s\fP \fIyear\fP\fB-\fP\fImonth\fP\fB-\fP\fIday\fP | \fB-s\fP \fB-\fP] [\fB-r\fP \fInum\fP[\fBh\fP|\fBm\fP|\fBs\fP]]
+     [\fB-bBgGnN\fP]
+.fi
+.SH "DESCRIPTION"
+.B blue
+prints a list of time point when the select event occurs.
+.SH "OPTIONS"
+.TP
+.B \-b
+List the time when the blue hour begins. (default)
+.TP
+.B \-B
+List the time when the blue hour ends.
+.TP
+\fB\-d\fP \fIDELEV\fP
+List the time when the first derivative of the Sun's elevation is
+.I DELEV
+and the Sun's elevation is non-negative (daytime).
+.TP
+\fB\-D\fP \fIDELEV\fP
+List the time when the first derivative of the Sun's elevation is
+.I DELEV
+and the Sun's elevation is non-positive (nighttime).
+.TP
+\fB\-e\fP \fIELEV\fP
+List the time when the Sun's elevation is
+\I ELEV
+and the first derivative of the Sun's elevation is
+non-positive (evening).
+.TP
+.B \-g
+List the time when the golden hour begins.
+.TP
+.B \-G
+List the time when the golden hour ends.
+.TP
+.B \-h
+Print times in human readable format.
+.TP
+\fB\-l\fP \fILATITUDE\P:\fILONGITUDE\fP
+Tell blue where you are. The values are measured in degrees
+and in the GPS (you probably do not have too care about that,
+the differences between the systems should not be significant
+another), and must be in decimal.
+
+Reminder for Americans (particularly US Americans), you are
+an the western hemisphere, not the eastern, thus your longtiude
+is negative. If you experience weird time listings, 100 % of
+the times it is because you forgot the minus sign. But no need
+to feel stupid, it is a really common mistake.
+
+No complicated stuff please, only latitudes within ±90° and
+longitudes within ±180°. No unit thought.
+.TP
+\fB\-l\fP \fILOCATION\fP
+Use a named location. In particular, the one stored in the
+file
+.RI ~/.config/geolocation.d/ LOCATION ,
+or the file
+.IR LOCATION ,
+if it begins with either ./ (dot slash), ../ (dot dot slash),
+or / (slash). By default ~/.config/geolocation, or /etc/geolocation
+as a fallback, is used.
+.TP
+.B \-L
+Print times in local time.
+.TP
+\fB-e\fP \fIELEV\fP
+List the time when the Sun's elevation is
+.I ELEV
+and the firs derivative of the Sun's elevation is
+non-negative (morning).
+.TP
+.B \-n
+List the time of solar noon.
+.TP
+.B \-N
+List the time of solar midnight.
+.TP
+\fB\-r\fP \fIRES\fP
+Print the in
+.I RES
+resultion.
+.I RES
+must be an integer followed by on the the suffixes:
+
+.nf
+h  hours
+m  minutes (min is not a valid suffix)
+s  seconds
+.fi
+
+For example:
+.B \-r 15m
+prints the nearest quarters of the times.
+.TP
+\fB\-s\fP \fIDATE\fP
+The last date (local time) to include in the last.
+.I DATE
+must be in
+.B %Y-%m-%d
+(year dash month dash day) format.
+A dash (-) for an infinite list. Default limit is one month.
+.TP
+.B \-u
+Print times in UNIX-time format.
+.SH "FILES"
+.TP
+.B ~/.config/geolocation
+Used to get your location if
+.B \-l
+is not used. This file contains
+your geographical location using the Global Positioning System
+in decimal format. This will never change. Other programs are
+encouraged to use this file too.
+
+If the file contains more than one line, only the first line,
+even if it is empty, is used.
+.TP
+.B /etc/geolocation
+Fallback file use if ~/.config/geolocation is missing. Other
+programs are encouraged to use this file too.
+.TP
+.B ~/.config/geolocation.d/
+Directory used for named locations. The files are formatted
+in the same way as ~/.config/geolocation. Other programs are
+encouraged to use this directory too.
+.TP
+.B /etc/geolocation.d/
+Directory used for named locations, used when the named
+location is not listed in ~/.config/geolocation.d/. The files
+are formatted in the same way as ~/.config/geolocation. Other
+programs are encouraged to use this directory too.
+.SH "RATIONALE"
+This is useful if you plan to take nice photographies, for example
+during the blue hours, or the golden hour.
+.SH "NOTES"
+US Americans, remember, you are on the Western Hemisphere.
+Therefore, you should specify a negative longitude.
+.SH "SEE ALSO"
+.BR locateme (1)
