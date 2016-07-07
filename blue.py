@@ -245,7 +245,6 @@ else:
     stop_time *= 24 * 60 * 60
     stop_time += 24 * 60 * 60
     stop_time -= (time.altzone if is_summer else time.timezone)
-    print('Z  ', time.gmtime(stop_time))
 
 
 def get_elev(elev, start, morning):
