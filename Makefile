@@ -11,7 +11,7 @@ install:
 	mkdir -p -- "$(DESTDIR)$(MANPREFIX)/man1"
 	mkdir -p -- "$(DESTDIR)$(PREFIX)/share/licenses/blue"
 	cp -- blue "$(DESTDIR)$(PREFIX)/bin/"
-	cp -- blue.1 "$(DESTDIR)$(MANDIR)/man1/"
+	cp -- blue.1 "$(DESTDIR)$(MANPREFIX)/man1/"
 	cp -- LICENSE "$(DESTDIR)$(PREFIX)/share/licenses/blue/"
 
 uninstall:
