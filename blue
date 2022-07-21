@@ -26,9 +26,9 @@ res = '1s'
 ## Parse command line
 argv0 = sys.argv[0] if len(sys.argv) > 0 else 'blue'
 def usage():
-    opts  =  '[-d delev]* [-D delev]* [-e elev]* [-m elev]* [-h [-L] | -u | -L]'
-    opts += ' [-l lat:lon | -l loc] [-s year-month-day | -s -] [-r num[h|m|s]]'
-    opts += ' [-bBgGnN]'
+    opts  =  '[-d delev] ... [-D delev] ... [-e elev]* [-m elev] ...'
+    opts += ' [-h [-L] | -u | -L] [-l lat:lon | -l loc] [-s year-month-day | -s -]'
+    opts += ' [-r num[h|m|s]] [-bBgGnN]'
     print('Usage: %s %s' % (argv0, opts), file = sys.stderr)
     sys.exit(1)
 i, n = 1, len(sys.argv)

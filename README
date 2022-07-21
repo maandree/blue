@@ -2,9 +2,9 @@ NAME
 	blue - Creates table of when the blue hour etc. occurs
 
 SYNPOSIS
-	blue [-d delev]* [-D delev]* [-e elev]* [-m elev]* [-h [-L] | -u | -L]
-	     [-l lat:lon | -l loc] [-s year-month-day | -s -] [-r num[h|m|s]]
-	     [-bBgGnN]
+	blue [-d delev] ... [-D delev] ... [-e elev] ... [-m elev] ...
+	     [-h [-L] | -u | -L] [-l lat:lon | -l loc] [-s year-month-day | -s -]
+	     [-r num[h|m|s]] [-bBgGnN]
 
 DESCRIPTION
 	blue prints a list of time point when the select event occurs.
