@@ -1,49 +1,68 @@
 .TH BLUE 1 BLUE
-.SH "NAME"
+.SH NAME
 blue - Creates table of when the blue hour etc. occurs
-.SH "SYNPOSIS"
-.nf
-\fBblue\fP [\fB-d\fP \fIdelev\fP] ... [\fB-D\fP \fIdelev\fP] ... [\fB-e\fP \fIelev\fP] ... [\fB-m\fP \fIelev\fP] ...
-     [\fB-h\fP [\fB-L\fP] | \fB-u\fP | \fB-L\fP] [\fB-l\fP \fIlat\fP\fB:\fP\fIlon\fP | \fB-l\fP \fIloc\fP] [\fB-s\fP \fIyear\fP\fB-\fP\fImonth\fP\fB-\fP\fIday\fP | \fB-s\fP \fB-\fP]
-     [\fB-r\fP \fInum\fP[\fBh\fP|\fBm\fP|\fBs\fP]] [\fB-bBgGnN\fP]
-.fi
+.SH SYNPOSIS
+.B blue
+.RB [ -d \ \fIdelev\fP]\ ...
+.RB [ -D \ \fIdelev\fP]\ ...
+.RB [ -e \ \fIelev\fP]\ ...
+.RB [ -m \ \fIelev\fP]\ ...
+.RB [ -hL
+|
+.BR -u ]
+\e
+.br
+\ \ \ \ 
+.RB [ -l
+.IB lat : lon \fR
+|
+.B -I
+.IR loc ]
+.RB -s
+.IB year - month - day
+|
+.B -s
+.BR - ]
+.RB [ -r
+.RB \fInum\fP[ h | m | s ]]
+.RB [ -bBgGnN ]
 .SH "DESCRIPTION"
 .B blue
 prints a list of time point when the select event occurs.
 .SH "OPTIONS"
 .TP
-.B \-b
+.B -b
 List the time when the blue hour begins. (default)
 .TP
-.B \-B
+.B -B
 List the time when the blue hour ends.
 .TP
-\fB\-d\fP \fIDELEV\fP
+.BI -d\  delev
 List the time when the first derivative of the Sun's elevation is
-.I DELEV
+.I delev
 and the Sun's elevation is non-negative (daytime).
 .TP
-\fB\-D\fP \fIDELEV\fP
+.BI -D\  delev
 List the time when the first derivative of the Sun's elevation is
-.I DELEV
+.I delev
 and the Sun's elevation is non-positive (nighttime).
 .TP
-\fB\-e\fP \fIELEV\fP
+.BI -e\  elev
 List the time when the Sun's elevation is
-\I ELEV
+.I elev
 and the first derivative of the Sun's elevation is
 non-positive (evening).
 .TP
-.B \-g
+.B -g
 List the time when the golden hour begins.
 .TP
-.B \-G
+.B -G
 List the time when the golden hour ends.
 .TP
-.B \-h
+.B -h
 Print times in human readable format.
 .TP
-\fB\-l\fP \fILATITUDE\P:\fILONGITUDE\fP
+.RI \fB-l\fP\  latitude : longitude
 Tell blue where you are. The values are measured in degrees
 and in the GPS (you probably do not have too care about that,
 the differences between the systems should not be significant
@@ -58,36 +77,36 @@ to feel stupid, it is a really common mistake.
 No complicated stuff please, only latitudes within ±90° and
 longitudes within ±180°. No unit thought.
 .TP
-\fB\-l\fP \fILOCATION\fP
+.BI -l\  location
 Use a named location. In particular, the one stored in the
 file
-.RI ~/.config/geolocation.d/ LOCATION ,
+.RI ~/.config/geolocation.d/ location ,
 or the file
-.IR LOCATION ,
+.IR location ,
 if it begins with either ./ (dot slash), ../ (dot dot slash),
 or / (slash). By default ~/.config/geolocation, or /etc/geolocation
 as a fallback, is used.
 .TP
-.B \-L
+.B -L
 Print times in local time.
 .TP
-\fB-e\fP \fIELEV\fP
+.BI -e\  elev
 List the time when the Sun's elevation is
-.I ELEV
+.I elev
 and the firs derivative of the Sun's elevation is
 non-negative (morning).
 .TP
-.B \-n
+.B -n
 List the time of solar noon.
 .TP
-.B \-N
+.B -N
 List the time of solar midnight.
 .TP
-\fB\-r\fP \fIRES\fP
+.BI -r\  res
 Print the in
-.I RES
+.I res
 resultion.
-.I RES
+.I res
 must be an integer followed by on the the suffixes:
 
 .nf
@@ -100,9 +119,9 @@ For example:
 .B \-r 15m
 prints the nearest quarters of the times.
 .TP
-\fB\-s\fP \fIDATE\fP
+.BI -s\  date
 The last date (local time) to include in the last.
-.I DATE
+.I date
 must be in
 .B %Y-%m-%d
 (year dash month dash day) format.
@@ -114,7 +133,7 @@ Print times in UNIX-time format.
 .TP
 .B ~/.config/geolocation
 Used to get your location if
-.B \-l
+.B -l
 is not used. This file contains
 your geographical location using the Global Positioning System
 in decimal format. This will never change. Other programs are
