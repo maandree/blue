@@ -1,7 +1,7 @@
 .TH BLUE 1 BLUE
 .SH NAME
-blue - Creates table of when the blue hour etc. occurs
-.SH SYNPOSIS
+blue \- Creates a table of when the blue hour etc. occurs
+.SH SYNOPSIS
 .B blue
 .RB [ -d \ \fIdelev\fP]\ ...
 .RB [ -D \ \fIdelev\fP]\ ...
@@ -28,7 +28,7 @@ blue - Creates table of when the blue hour etc. occurs
 .RB [ -bBgGnN ]
 .SH "DESCRIPTION"
 .B blue
-prints a list of time point when the select event occurs.
+prints a list of time points when the selected event occurs.
 .SH "OPTIONS"
 .TP
 .B -b
@@ -64,18 +64,18 @@ Print times in human readable format.
 .TP
 .RI \fB-l\fP\  latitude : longitude
 Tell blue where you are. The values are measured in degrees
-and in the GPS (you probably do not have too care about that,
+and in the GPS (you probably do not have to care about that;
 the differences between the systems should not be significant
-another), and must be in decimal.
+in another), and must be in decimal.
 
 Reminder for Americans (particularly US Americans), you are
-an the western hemisphere, not the eastern, thus your longtiude
+in the western hemisphere, not the eastern, thus your longitude
 is negative. If you experience weird time listings, 100 % of
 the times it is because you forgot the minus sign. But no need
 to feel stupid, it is a really common mistake.
 
 No complicated stuff please, only latitudes within ±90° and
-longitudes within ±180°. No unit thought.
+longitudes within ±180°. No units though.
 .TP
 .BI -l\  location
 Use a named location. In particular, the one stored in the
@@ -93,7 +93,7 @@ Print times in local time.
 .BI -e\  elev
 List the time when the Sun's elevation is
 .I elev
-and the firs derivative of the Sun's elevation is
+and the first derivative of the Sun's elevation is
 non-negative (morning).
 .TP
 .B -n
@@ -103,11 +103,11 @@ List the time of solar noon.
 List the time of solar midnight.
 .TP
 .BI -r\  res
-Print the in
+Print results in
 .I res
-resultion.
+resolution.
 .I res
-must be an integer followed by on the the suffixes:
+must be an integer followed by one of the suffixes:
 
 .nf
 h  hours
@@ -120,7 +120,7 @@ For example:
 prints the nearest quarters of the times.
 .TP
 .BI -s\  date
-The last date (local time) to include in the last.
+The last date (local time) to include in the list.
 .I date
 must be in
 .B %Y-%m-%d
@@ -143,7 +143,7 @@ If the file contains more than one line, only the first line,
 even if it is empty, is used.
 .TP
 .B /etc/geolocation
-Fallback file use if ~/.config/geolocation is missing. Other
+Fallback file used if ~/.config/geolocation is missing. Other
 programs are encouraged to use this file too.
 .TP
 .B ~/.config/geolocation.d/
@@ -157,11 +157,11 @@ location is not listed in ~/.config/geolocation.d/. The files
 are formatted in the same way as ~/.config/geolocation. Other
 programs are encouraged to use this directory too.
 .SH "RATIONALE"
-This is useful if you plan to take nice photographies, for example
+This is useful if you plan to take nice photographs, for example
 during the blue hours, or the golden hour. But mostly, I just made
 this because I could.
 .SH "NOTES"
-US Americans, remember, you are on the Western Hemisphere.
+US Americans, remember, you are on the western hemisphere.
 Therefore, you should specify a negative longitude.
 .SH "SEE ALSO"
 .BR locateme (1)

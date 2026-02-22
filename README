@@ -1,12 +1,12 @@
 NAME
-	blue - Creates table of when the blue hour etc. occurs
+	blue - Creates a table of when the blue hour etc. occurs
 
-SYNPOSIS
+SYNOPSIS
 	blue [-d delev] ... [-D delev] ... [-e elev] ... [-m elev] ... [-hL | -u] \
 	     [-l lat:lon | -l loc] [-s year-month-day | -s -] [-r num[h|m|s]] [-bBgGnN]
 
 DESCRIPTION
-	blue prints a list of time point when the select event occurs.
+	blue prints a list of time points when the selected event occurs.
 
 OPTIONS
 	-b
@@ -38,18 +38,18 @@ OPTIONS
 
 	-l LATITUDE:LONGITUDE
 		Tell blue where you are. The values are measured in degrees
-		and in the GPS (you probably do not have too care about that,
+		and in the GPS (you probably do not have to care about that;
 		the differences between the systems should not be significant
-		another), and must be in decimal.
+		in another), and must be in decimal.
 
 		Reminder for Americans (particularly US Americans), you are
-		an the western hemisphere, not the eastern, thus your longtiude
+		in the western hemisphere, not the eastern, thus your longitude
 		is negative. If you experience weird time listings, 100 % of
 		the times it is because you forgot the minus sign. But no need
 		to feel stupid, it is a really common mistake.
 
 		No complicated stuff please, only latitudes within ±90° and
-		longitudes within ±180°. No unit thought.
+		longitudes within ±180°. No units though.
 
 	-l LOCATION
 		Use a named location. In particular, the one stored in the
@@ -72,8 +72,8 @@ OPTIONS
 		List the time of solar midnight.
 
 	-r RES
-		Print the in RES resultion. RES must be an integer followed
-		by on the the suffixes:
+		Print results in RES resolution. RES must be an integer followed
+		by one of the suffixes:
 
 		h  hours
 		m  minutes (min is not a valid suffix)
@@ -82,7 +82,7 @@ OPTIONS
 		For example: -r 15m prints the nearest quarters of the times.
 
 	-s DATE
-		The last date (local time) to include in the last. DATE must
+		The last date (local time) to include in the list. DATE must
 		be in %Y-%m-%d (year dash month dash day) format. A dash (-)
 		for an infinite list. Default limit is one month.
 
@@ -100,7 +100,7 @@ FILES
 		even if it is empty, is used.
 
 	/etc/geolocation
-		Fallback file use if ~/.config/geolocation is missing. Other
+		Fallback file used if ~/.config/geolocation is missing. Other
 		programs are encouraged to use this file too.
 
 	~/.config/geolocation.d/
@@ -115,7 +115,7 @@ FILES
 		programs are encouraged to use this directory too.
 
 RATIONALE
-	This is useful if you plan to take nice photographies, for example
+	This is useful if you plan to take nice photographs, for example
 	during the blue hours, or the golden hour. But mostly, I just made
 	this because I could.
 
